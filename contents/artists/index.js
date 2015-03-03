@@ -12,10 +12,7 @@ var artists = {
                 })
                 $("#list").html(html)
             })
-
         })
-
-
     },
 
     load: function() {
@@ -26,7 +23,7 @@ var artists = {
         })
 
         // default search results
-        bills.searchByName('Tania Bowra')
+        artists.searchByName('Tania Bowra')
 
     }
 
