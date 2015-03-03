@@ -5,17 +5,15 @@ table.table.table-striped
             th Name
             th Genres
             th Popularity
-            th Followers
 
     tbody
         each artist in data
             tr
                 td
-                    img(width='200' src= artist.image[0].url)
-                    = artist.name
+                    img(width='200' src= artist.items.image[0].url)
+                    = artist.items.name
                 td 
-                    each genre in artist.genre
+                    each genre in artist.items.genre
                         = genre +','
-                td= artist.popularity
-                td= artist.followers.total
+                td= artist.items.popularity
 
