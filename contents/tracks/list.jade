@@ -1,0 +1,33 @@
+h3 Results
+table.table.table-striped
+    thead
+        tr
+            th Album Cover
+            th Track Name
+            th Album Name
+            th Artist Name
+            th Duration
+            th Explicit?
+            th Popularity
+            th Spotify URL
+    tbody
+        each item in data
+            tr
+                td
+                    img(src=item.album.images[2].url)
+                td
+                    = item.name
+                td
+                    = item.album.name
+                td
+                    = item.artists[0].name
+                td
+                    = parseInt(Number(item.duration_ms) / 60000) + ":" + parseInt((Number(item.duration_ms) % 60000) / 1000)
+                td
+                    = item.explicit
+                td
+                    = item.popularity
+                td
+                    a(href=item.external_urls.spotify)
+                        = "Spotify"
+
