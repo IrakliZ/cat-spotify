@@ -9,9 +9,12 @@ table.table.table-striped
     tbody
         each artist in data.artists.items
             tr
-                td= artist.name
+                td 
+                    a(href="#" onClick='tracks.findTopTen(' + artist.id + ')')
+                        = artist.name
                 td
                     each genre in artist.genres
                         = genre +','
                 td= artist.popularity
+                
 
