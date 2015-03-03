@@ -6,7 +6,6 @@ var tracks = {
 
         $.get("https://api.spotify.com/v1/search?q=" + trackName + "&type=track", function(data) {
 
-            console.log(data)
             if (data.tracks.items){
 
                 $.get("/cat-spotify/tracks/list.jade", function(template) {
@@ -24,10 +23,8 @@ var tracks = {
     },
 
     findTopTen: function(artistId) {
-        console.log("HIII: " + artistId)
 
         $.get("https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US", function(data) {
-            console.log(data)
 
             if (data.tracks){
 
