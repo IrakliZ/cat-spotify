@@ -1,0 +1,21 @@
+h3 Results
+table.table.table-striped
+    thead
+        tr
+            th Name
+            th Genres
+            th Popularity
+            th Followers
+
+    tbody
+        each artist in data
+            tr
+                td
+                    img(width='200' src= artist.image[0].url)
+                    = artist.name
+                td 
+                    each genre in artist.genre
+                        = genre +','
+                td= artist.popularity
+                td= artist.followers.total
+
