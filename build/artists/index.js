@@ -26,7 +26,7 @@ var artists = {
         })
 
         // default search results
-        artists.searchByName('Tania Bowra')
+        bills.searchByName('Tania Bowra')
 
     }
 

@@ -1,17 +1,15 @@
-var albums = {
+var album = {
 
     searchByAlbum: function(title) {
 
-        title.replace(" ", "%20")
+        $.get("https://api.spotify.com/v1/search?q="+title+"&type=album" + zipcode, function(data) {
 
-        $.get("https://api.spotify.com/v1/search?q="+title+"&type=album", function(data) {
-
-            console.log(data.albums.items)
-            if (data){
+            console.log('got ' + data)
+            if (data.items){
 
                 $.get("/cat-spotify/albums/list.jade", function(template) {
                     var html = jade.render(template, {
-                        data: data
+                        data: data.items
                     })
                     console.log(html)
                     $("#list").html(html)
@@ -27,11 +25,11 @@ var albums = {
 
         $.get("/cat-spotify/albums/ui.jade", function(template) {
             var html = jade.render(template)
-            $("#searchdiv").html(html)
+            $("#ui").html(html)
         })
 
         // default search results
-        albums.searchByAlbum('Babel')
+        album.searchByAlbum('Babel')
 
     }
 

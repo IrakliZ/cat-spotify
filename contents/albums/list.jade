@@ -1,0 +1,25 @@
+h3 Results
+table.table.table-striped
+	thead
+		tr
+			th Name 
+			//- th Title
+			//- th Party
+			//- th Gender
+			//- th Website
+			//- th Email
+			//- th BioGuide ID
+	tbody
+	each album in data.albums.items
+		tr
+			td
+				img(src=album.images[2].url)
+			td= album.name
+			//- td= item.title
+			//- td= item.party
+			//- td= item.gender
+			//- td
+			//- 	a(href=item.website)
+			//- 		= item.website
+			//- td= item.oc_email
+			//- td= item.bioguide_id
