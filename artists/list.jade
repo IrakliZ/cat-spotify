@@ -3,19 +3,18 @@ table.table.table-striped
     thead
         tr
             th Name
-            th Genres
+            th Genre
             th Popularity
-            th Followers
 
     tbody
-        each artist in data
+        each artist in data.artists.items
             tr
                 td
-                    img(width='200' src= artist.image[0].url)
-                    = artist.name
-                td 
-                    each genre in artist.genre
+                    a(href="#" onClick='tracks.findTopTen("' + artist.id + '")')
+                        = artist.name
+                td
+                    each genre in artist.genres
                         = genre +','
                 td= artist.popularity
-                td= artist.followers.total
+
 
