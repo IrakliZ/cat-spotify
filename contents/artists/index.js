@@ -1,36 +1,12 @@
 var bills = {
 
-    searchByRecentActivity: function(last_action_at) {
+    searchByName: function(name) {
 
-        // search legistalors by lstAction 
-        // ref: https://congress.api.sunlightfoundation.com/bills?history.active=true&order=last_action_at
+        var name = name || "Tania Bowra"
 
-        var last_action_at = last_action_at || "5"
+        $.get("https://api.spotify.com/v1/search?q="+ name +"&type=artist", function(data) {
 
-        $.get("https://api.spotify.com/v1/artists/" + last_action_at, apikey, function(data) {
-
-            console.log('got ' + data)
-            if (data.results){
-
-                $.get("/sunlight/bills/list.jade", function(template) {
-                    var html = jade.render(template, {
-                        data: data
-                    })
-                    console.log(html)
-                    $("#list").html(html)
-                })
-
-            }
-
-        })
-
-    },
-
-    searchByBillID: function(bill_id) {
-
-        $.get("https://congress.api.sunlightfoundation.com/bills?bill_id=" + bill_id, apikey, function(data) {
-
-            $.get("/sunlight/bills/list.jade", function(template) {
+            $.get("/cat-spotify/artists/list.jade", function(template) {
                 var html = jade.render(template, {
                     data: data
                 })
@@ -39,17 +15,18 @@ var bills = {
 
         })
 
+
     },
 
     load: function() {
 
-        $.get("/sunlight/bills/ui.jade", function(template) {
+        $.get("/cat-spotify/artists/ui.jade", function(template) {
             var html = jade.render(template)
             $("#ui").html(html)
         })
 
         // default search results
-        bills.searchByBillID('hr3590-111')
+        bills.searchByName('Tania Bowra')
 
     }
 
