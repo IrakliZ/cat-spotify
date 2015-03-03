@@ -23,6 +23,27 @@ var tracks = {
 
     },
 
+    findTopTen: function(artistId) {
+        console.log("HIII: " + artistId)
+
+        $.get("https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US", function(data) {
+            console.log(data)
+
+            if (data.tracks){
+
+                $.get("/cat-spotify/tracks/list.jade", function(template) {
+                    var html = jade.render(template, {
+                        data: data.tracks
+                    })
+
+                    $("#list").html(html)
+                })
+
+            }
+
+        })
+    },
+
     load: function() {
 
         $.get('/cat-spotify/tracks/ui.jade', function(template) {
