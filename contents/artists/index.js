@@ -1,4 +1,4 @@
-var bills = {
+var artists = {
 
     searchByName: function(name) {
 
