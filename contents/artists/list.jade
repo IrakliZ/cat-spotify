@@ -2,34 +2,20 @@ h3 Results
 table.table.table-striped
     thead
         tr
-            th Bill ID
-            th Type
-            th Number
-            th Congress
-            th Chamber
-            th Introduced On
-            th Last Action At
-            th Vote At
-            th Version On
+            th Name
+            th Genres
+            th Popularity
+            th Followers
+
     tbody
-        each item in data.results
+        each artist in data
             tr
+                td
+                    img(width='200' src= artist.image[0].url)
+                    = artist.name
                 td 
-                    = item.bill_id
-                td 
-                    = item.bill_type
-                td 
-                    = item.number
-                td 
-                    = item.congress
-                td 
-                    = item.chamber
-                td 
-                    = item.introduced_on
-                td 
-                    = item.last_action_at
-                td 
-                    = item.last_vote_at
-                td 
-                    = item.last_version_on
+                    each genre in artist.genre
+                        = genre +','
+                td= artist.popularity
+                td= artist.followers.total
 

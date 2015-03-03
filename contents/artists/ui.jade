@@ -2,6 +2,7 @@ h5 Search
 .row
     .col-md-8
         .form-group.form-group-default
+<<<<<<< HEAD
             label Search            
             input#search-name.form-control(type='text', required='')                
     .col-md-4                         
@@ -12,4 +13,15 @@ h5 Search Artists Name
 ul
     li
         a(href="#" onClick='artists.searchByName("Tania Bowra")') Tania Bowra
+=======
+            label Artist           
+            input#artist.form-control(type='text', required='')                
+    .col-md-4                         
+        button.btn.btn-primary(onClick='artists.searchByName($("#artist").val())') Search
+
+h5 Example Artists
+ul
+    li
+        a(href="#" onClick='artists.searchByName("Edvard Grieg")') Edvard Grieg
+>>>>>>> 21a2fccc04b7abfa8b740f278d2ff4ff105620df
 
