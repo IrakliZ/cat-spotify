@@ -1,0 +1,8 @@
+h5 Search
+.row
+    .col-md-8
+        .form-group.form-group-default
+            label Track Name
+            input#last-action.form-control(type='text', required='')
+    .col-md-4
+        button.btn.btn-primary(onClick='tracks.searchByTrack($("#last-action").val())') Search

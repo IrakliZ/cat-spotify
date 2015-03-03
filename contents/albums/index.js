@@ -8,7 +8,6 @@ var albums = {
 
             console.log(data.albums.items)
             if (data){
-
                 $.get("/cat-spotify/albums/list.jade", function(template) {
                     var html = jade.render(template, {
                         data: data
@@ -16,7 +15,6 @@ var albums = {
                     console.log(html)
                     $("#list").html(html)
                 })
-
             }
 
         })
